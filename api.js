@@ -353,7 +353,7 @@ var cryptico = (function() {
     {
         const rsaKeyJson =  JSON.parse(rsaKeyString)
         let rsaKey = new RSAKey();
-        let keys = Object.keys(testJson)
+        let keys = Object.keys(rsaKeyJson)
     
         for (let key in keys){
             let vals = rsaKeyJson[keys[key]];
