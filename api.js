@@ -349,6 +349,25 @@ var cryptico = (function() {
         }
     }
 
+    my.parseStringToRsaKey = function(rsaKeyString)
+    {
+        const rsaKeyJson =  JSON.parse(rsaKeyString)
+        let rsaKey = new RSAKey();
+        let keys = Object.keys(testJson)
+    
+        for (let key in keys){
+            let vals = rsaKeyJson[keys[key]];
+            let valsKeys = Object.keys(vals);
+            let bigInteger = new BigInteger();
+            for (let valsKey in valsKeys){
+                let val = vals[valsKeys[valsKey]];
+                bigInteger[valsKeys[valsKey]] = val
+            }
+            rsaKey[keys[key]] = bigInteger;
+        }
+        return rsaKey;
+    }
+
     return my;
 
 }());
